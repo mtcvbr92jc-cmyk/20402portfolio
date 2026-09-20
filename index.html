@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이다연의 홈페이지</title>
+    <style>
+        /* 기본 테마 및 배경색 설정 (FEFCF3 톤) */
+        body {
+            background-color: #FEFCF3;
+            color: #4A5568; /* 눈이 편안한 짙은 블루 그레이 */
+            font-family: 'Malgun Gothic', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* 헤더 영역 - 더 연하고 포근한 파스텔 하늘색으로 변경 */
+        header {
+            background-color: #EBF8FF; 
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 2px dashed #CCEFFF;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: #2B6CB0; /* 부드러운 딥 파스텔 블루 */
+            letter-spacing: -0.5px;
+        }
+
+        /* 상단 메뉴바 */
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            text-align: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #F0F4F8;
+        }
+
+        nav a {
+            color: #718096;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #90CDF4;
+        }
+
+        /* 메인 컨텐츠 영역 */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 개별 섹션 스타일 */
+        section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+            border: 1px solid #EBF1F5;
+            scroll-margin-top: 75px;
+        }
+
+        section h2 {
+            color: #2B6CB0; /* 초록색에서 차분한 블루 톤으로 변경 */
+            border-bottom: 2px solid #EBF8FF;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        /* 기발한 기능: 인사하는 펭귄 영역 */
+        .penguin-box {
+            text-align: center;
+            background-color: #F7FAFC;
+            border: 2px dashed #EBF8FF;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .penguin-btn {
+            background-color: #EBF8FF;
+            border: none;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .penguin-btn:hover {
+            transform: scale(1.08);
+            background-color: #D4F0FF;
+        }
+
+        .penguin-bubble {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2D3748;
+            min-height: 24px;
+        }
+
+        /* 방명록 스타일 */
+        .guestbook-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .guestbook-form input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            background-color: #FAFAFA;
+            font-size: 0.95rem;
+        }
+
+        .guestbook-form input[type="text"]:focus {
+            outline: none;
+            border-color: #90CDF4;
+            background-color: #ffffff;
+        }
+
+        .guestbook-form button {
+            background-color: #EBF8FF;
+            color: #2B6CB0;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .guestbook-form button:hover {
+            background-color: #D4F0FF;
+        }
+
+        .guestbook-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guestbook-list li {
+            background: #F8FAFC;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 4px solid #EBF8FF;
+            font-size: 0.95rem;
+            color: #4A5568;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #A0AEC0;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 (요청하신 대로 타이틀만 깔끔하게 구성) -->
+    <header>
+        <h1>이다연의 홈페이지</h1>
+    </header>
+
+    <!-- 상단 메뉴바 -->
+    <nav>
+        <a href="#home">🏠 Home</a>
+        <a href="#profile">👤 Profile</a>
+        <a href="#projects">💻 Projects/Skills</a>
+        <a href="#growth">🌱 Growth</a>
+        <a href="#playlab">🎬 Play Lab</a>
+        <a href="#contact">✉️ Contact</a>
+    </nav>
+
+    <!-- 메인 컨텐츠 -->
+    <div class="container">
+
+        <!-- Home -->
+        <section id="home">
+            <h2>🏠 Home</h2>
+            <p><strong>단단하지만, 따뜻한</strong> 저의 성격을 담아낸 공간입니다. 언제든 편하게 머물다 가세요!</p>
+        </section>
+
+        <!-- Profile -->
+        <section id="profile">
+            <h2>👤 Profile</h2>
+            <p>안녕하세요! 미래의 <strong>17살 엔지니어</strong>를 꿈꾸는 <strong>이다연</strong>입니다.</p>
+        </section>
+
+        <!-- Projects/Skills -->
+        <section id="projects">
+            <h2>💻 Projects/Skills</h2>
+            <p>문제를 마주했을 때 해결책을 찾아내는 것을 좋아합니다. 저를 움직이는 세 가지 키워드입니다.</p>
+            <ul>
+                <li><strong>호기심</strong> : 새로운 기술과 원리를 탐구하는 것을 멈추지 않습니다.</li>
+                <li><strong>문제 해결력</strong> : 어려운 난관도 끈기 있게 풀어냅니다.</li>
+                <li><strong>자기주도성</strong> : 스스로 목표를 설정하고 계획을 세워 실천합니다.</li>
+            </ul>
+        </section>
+
+        <!-- Growth -->
+        <section id="growth">
+            <h2>🌱 Growth</h2>
+            <p>어린 시절부터 게임을 자주 접해서 자연스럽게 코딩이나 기술과 같은 분야에 관심을 가지게 되었습니다. 고등학교에 올라와 더 찾아보니 전기 분야가 제 적성에도 맞고 흥미로워서 엔지니어를 희망하게 되었습니다.</p>
+            <p>제 꿈을 이루기 위해 고등학교 진학 후 공학 동아리에 들어오고, 여러 과학 탐구 대회에 나가며 제 사고능력과 기술을 더 다듬는 기회를 가지게 되었습니 다.</p>
+        </section>
+
+        <!-- Play Lab -->
+        <section id="playlab">
+            <h2>🎬 Play Lab</h2>
+            <p><strong>MBTI : INFP</strong></p>
+            
+            <!-- 기발한 기능: 인사하는 펭귄 (안내 문구 삭제) -->
+            <div class="penguin-box">
+                <button class="penguin-btn" onclick="sayHello()">🐧</button>
+                <div class="penguin-bubble" id="penguinTalk">안녕! 내 보금자리에 온 걸 환영해!</div>
+            </div>
+        </section>
+
+        <!-- Contact & 방명록 -->
+        <section id="contact">
+            <h2>✉️ Contact</h2>
+            <p>📞 Phone: 010-2740-4847</p>
+            
+            <hr style="border: 0; height: 1px; background: #E2E8F0; margin: 30px 0;">
+            
+            <h3>📝 방명록 남기기</h3>
+            <div class="guestbook-form">
+                <input type="text" id="guestInput" placeholder="따뜻한 한마디를 남겨주세요!">
+                <button onclick="addMessage()">등록</button>
+            </div>
+            <!-- 예시 텍스트가 삭제되어 비어있는 리스트 상태입니다 -->
+            <ul class="guestbook-list" id="guestList"></ul>
+        </section>
+
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2026 이다연. All rights reserved.</p>
+    </footer>
+
+    <!-- 기능 구현 스크립트 -->
+    <script>
+        // 펭귄 인사 기능 익살스럽고 다정한 문구들
+        const greetings = [
+            "안녕! 오늘 하루도 좋은 일만 가득해! ✨",
+            "엔지니어가 될 다연이의 공간이야! ⚡",
+            "토닥토닥, 언제나 너를 응원할게! 🤍",
+            "방명록 한 줄 남겨주면 정말 고마울 거야! 🐧"
+        ];
+        
+        function sayHello() {
+            const randomIndex = Math.floor(Math.random() * greetings.length);
+            document.getElementById('penguinTalk').innerText = greetings[randomIndex];
+        }
+
+        // 방명록 등록 기능
+        function addMessage() {
+            const input = document.getElementById('guestInput');
+            const list = document.getElementById('guestList');
+            
+            if(input.value.trim() === '') {
+                alert('내용을 입력해 주세요!');
+                return;
+            }
+            
+            const li = document.createElement('li');
+            li.innerText = input.value;
+            list.appendChild(li);
+            
+            input.value = ''; // 입력창 초기화
+        }
+    </script>
+</body>
+</html>
