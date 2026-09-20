@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>김가윤을 소개합니다</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Arial", "Noto Sans KR", sans-serif;
+    background: #133458;
+    color: #FFFBB1;
+    line-height: 1.8;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(19, 52, 88, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 251, 177, 0.2);
+    z-index: 1000;
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+nav a {
+    color: #FFFBB1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #F62440;
+}
+
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 120px 30px;
+}
+
+.label {
+    color: #F62440;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 38px;
+    margin-bottom: 35px;
+    letter-spacing: -1px;
+}
+
+.divider {
+    width: 45px;
+    height: 3px;
+    background: #F62440;
+    margin: 25px 0;
+}
+
+
+/* HOME */
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.home-content {
+    max-width: 850px;
+}
+
+.home-content .small {
+    font-size: 15px;
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+.home-content h1 {
+    font-size: clamp(55px, 9vw, 105px);
+    line-height: 1;
+    letter-spacing: -5px;
+    margin: 20px 0;
+}
+
+.home-content h1 span {
+    color: #F62440;
+}
+
+.home-content p {
+    max-width: 700px;
+    font-size: 18px;
+    color: #fffed0;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 35px;
+    left: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+
+/* PROFILE */
+
+.profile-box {
+    border-left: 3px solid #F62440;
+    padding-left: 30px;
+    max-width: 850px;
+}
+
+.profile-box h3 {
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.profile-box p {
+    color: #fffed0;
+    font-size: 16px;
+}
+
+
+/* PROJECTS */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    border: 1px solid rgba(255, 251, 177, 0.25);
+    padding: 30px;
+    min-height: 230px;
+    transition: 0.3s;
+    background: rgba(255,255,255,0.025);
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #F62440;
+}
+
+.project-number {
+    color: #F62440;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.project-card h3 {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.project-card p {
+    color: #dfe7d8;
+    font-size: 14px;
+}
+
+
+/* SKILLS */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.skill {
+    border: 1px solid #FFFBB1;
+    padding: 8px 17px;
+    font-size: 13px;
+    border-radius: 30px;
+}
+
+
+/* GROWTH */
+
+.growth-list {
+    border-top: 1px solid rgba(255,251,177,0.25);
+}
+
+.growth-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,251,177,0.25);
+}
+
+.growth-item .num {
+    color: #F62440;
+    font-weight: bold;
+}
+
+.growth-item h3 {
+    margin-bottom: 8px;
+}
+
+.growth-item p {
+    color: #dfe7d8;
+    font-size: 14px;
+}
+
+
+/* PLAY LAB */
+
+.play-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.play-tab {
+    border: 1px solid rgba(255,251,177,0.35);
+    background: transparent;
+    color: #FFFBB1;
+    padding: 12px 22px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+.play-tab:hover,
+.play-tab.active {
+    background: #F62440;
+    border-color: #F62440;
+    color: white;
+}
+
+.play-content {
+    border: 1px solid rgba(255,251,177,0.25);
+    min-height: 280px;
+    padding: 45px;
+    background: rgba(255,255,255,0.025);
+    position: relative;
+}
+
+.play-item {
+    display: none;
+}
+
+.play-item.active {
+    display: block;
+}
+
+.play-number {
+    color: #F62440;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.play-item h3 {
+    font-size: 38px;
+    margin: 15px 0 20px;
+}
+
+.play-keywords {
+    color: #dfe7d8;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+
+/* CONTACT */
+
+.contact-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    border-top: 1px solid rgba(255,251,177,0.3);
+    border-bottom: 1px solid rgba(255,251,177,0.3);
+    padding: 35px 0;
+}
+
+.contact-box p {
+    color: #dfe7d8;
+    font-size: 14px;
+}
+
+.contact-button {
+    border: 1px solid #FFFBB1;
+    color: #FFFBB1;
+    padding: 12px 22px;
+    text-decoration: none;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.contact-button:hover {
+    background: #F62440;
+    border-color: #F62440;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #FFFBB1;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 0;
+    }
+
+    .nav-inner {
+        padding: 14px 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(19, 52, 88, 0.98);
+        border-top: 1px solid rgba(255, 251, 177, 0.15);
+        padding: 10px 20px 18px;
+    }
+
+    .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 13px;
+    }
+
+    section {
+        padding: 90px 20px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .home-content h1 {
+        font-size: 58px;
+    }
+
+    .home-content p {
+        font-size: 15px;
+    }
+
+    .growth-item {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .contact-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .play-content {
+        padding: 35px 25px;
+    }
+
+    .play-item h3 {
+        font-size: 30px;
+    }
+
+    .play-tab {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="nav-inner">
+
+        <button class="hamburger" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">🏠 Home</a>
+            <a href="#profile">👤 Profile</a>
+            <a href="#projects">💻 Projects/Skills</a>
+            <a href="#growth">🌱 Growth</a>
+            <a href="#play">🎬 Play Lab</a>
+            <a href="#contact">✉️ Contact</a>
+        </div>
+
+    </div>
+</nav>
+
+
+
+<!-- HOME -->
+
+<section id="home">
+
+    <div class="home-content">
+
+        <div class="small">
+            MECHANICAL ENGINEERING PORTFOLIO
+        </div>
+
+        <h1>
+            김가윤을<br>
+            소개<span>합니다.</span>
+        </h1>
+
+        <div class="divider"></div>
+
+        <p>
+            이 홈페이지는 기계의 원리와 구조에 대한 관심에서 출발하여,
+            다양한 탐구와 프로젝트를 통해 기계공학적 사고를 확장해 온 과정을 기록합니다.
+        </p>
+
+    </div>
+
+    <div class="scroll">
+        SCROLL TO EXPLORE ↓
+    </div>
+
+</section>
+
+
+
+<!-- PROFILE -->
+
+<section id="profile">
+
+    <div class="label">01 / PROFILE</div>
+
+    <h2>About Me</h2>
+
+    <div class="profile-box">
+
+        <h3>
+            호기심을 직접 탐구하고 만들어보는 학생, 김가윤입니다.
+        </h3>
+
+        <p>
+            기계가 작동하는 원리와 구조에 관심이 많으며,
+            비행기·자동차·로봇 등 다양한 기계 시스템이 어떤 원리로 움직이는지
+            알아가는 것을 좋아합니다. 단순히 원리를 이해하는 데서 그치지 않고
+            직접 설계하고 실험하며 문제를 해결하는 과정에 흥미를 느낍니다.
+            앞으로 기계공학을 공부하며 일상 속 다양한 현상을 공학적으로 바라보고,
+            새로운 아이디어를 실제로 구현할 수 있는 역량을 키워가고 싶습니다.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- PROJECTS / SKILLS -->
+
+<section id="projects">
+
+    <div class="label">02 / PROJECTS & SKILLS</div>
+
+    <h2>탐구와 프로젝트</h2>
+
+    <div class="projects">
+
+        <div class="project-card">
+
+            <div class="project-number">01</div>
+
+            <h3>비행기 날개 형상과 비행 성능 탐구</h3>
+
+            <p>
+                여객기와 전투기의 날개 형태와 크기가 다른 이유를 비교하고,
+                날개 형상이 양력·항력과 비행 목적에 미치는 영향을 탐구함.
+            </p>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <div class="project-number">02</div>
+
+            <h3>버스의 회전 운동과 구심력 탐구</h3>
+
+            <p>
+                곡선 구간 주행을 원운동으로 보고 속력과 회전 반지름에 따른
+                구심력의 관계를 수식과 그래프로 분석함.
+            </p>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <div class="project-number">03</div>
+
+            <h3>3D 프린팅 기술과 기계공학의 활용 탐구</h3>
+
+            <p>
+                3D 프린팅의 원리와 장점을 알아보고,
+                항공기 엔진 연료 노즐 경량화 등 실제 기계공학 분야의 활용 사례를 탐구함.
+            </p>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <div class="project-number">04</div>
+
+            <h3>엘리베이터 회생제동 시스템 탐구</h3>
+
+            <p>
+                상승과 하강 과정에서 발생하는 에너지를 전기에너지로 회수하는
+                회생제동의 원리와 에너지 효율을 탐구함.
+            </p>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <div class="project-number">05</div>
+
+            <h3>수중 글라이더의 구조와 AI 활용 탐구</h3>
+
+            <p>
+                부력과 무게 중심의 변화로 이동하는 수중 글라이더의 원리와
+                자율적인 움직임을 위한 AI 활용 가능성을 탐구함.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="skills">
+
+        <div class="skill">3D Modeling</div>
+        <div class="skill">3D Printing</div>
+        <div class="skill">Arduino</div>
+        <div class="skill">Sensors</div>
+        <div class="skill">Basic Coding</div>
+        <div class="skill">Physics</div>
+        <div class="skill">Mathematical Analysis</div>
+        <div class="skill">Problem Solving</div>
+
+    </div>
+
+</section>
+
+
+
+<!-- GROWTH -->
+
+<section id="growth">
+
+    <div class="label">03 / GROWTH</div>
+
+    <h2>성장 과정</h2>
+
+    <div class="growth-list">
+
+        <div class="growth-item">
+
+            <div class="num">01</div>
+
+            <div>
+                <h3>관심의 시작</h3>
+
+                <p>
+                    비행기, 자동차, 로봇처럼 눈에 보이는 기계에 관심을 가지는 것에서 시작함.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="growth-item">
+
+            <div class="num">02</div>
+
+            <div>
+                <h3>탐구의 확장</h3>
+
+                <p>
+                    하나의 현상을 이해하려면 물리·수학 원리뿐만 아니라
+                    구조와 재료 등 다양한 요소를 함께 살펴봐야 한다는 것을 알게 됨.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="growth-item">
+
+            <div class="num">03</div>
+
+            <div>
+                <h3>직접 시도하기</h3>
+
+                <p>
+                    직접 실험과 프로젝트를 진행하며 예상과 다른 결과가 나타났을 때
+                    원인을 찾고 부족한 부분을 다시 공부하는 경험을 쌓음.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="growth-item">
+
+            <div class="num">04</div>
+
+            <div>
+                <h3>문제를 바라보는 방식</h3>
+
+                <p>
+                    단순히 정답을 찾는 것보다 왜 그런 결과가 나타났는지 질문하고
+                    스스로 해결 방법을 찾아가는 태도를 형성함.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="growth-item">
+
+            <div class="num">05</div>
+
+            <div>
+                <h3>NEXT</h3>
+
+                <p>
+                    새로운 기술과 원리를 배우는 데 그치지 않고 직접 설계하고 제작하며,
+                    아이디어를 실제 문제 해결로 연결하는 기계공학도로 성장하고 싶음.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PLAY LAB -->
+
+<section id="play">
+
+    <div class="label">04 / PLAY LAB</div>
+
+    <h2>PLAY LAB</h2>
+
+    <div style="
+        color: #dfe7d8;
+        font-size: 14px;
+        margin-top: -25px;
+        margin-bottom: 30px;
+    ">
+        좋아하는 것
+    </div>
+
+
+    <div class="play-tabs">
+
+        <button class="play-tab active" onclick="showPlay(0)">
+            MUSIC
+        </button>
+
+        <button class="play-tab" onclick="showPlay(1)">
+            MOVIES
+        </button>
+
+        <button class="play-tab" onclick="showPlay(2)">
+            FOOTBALL
+        </button>
+
+        <button class="play-tab" onclick="showPlay(3)">
+            F1
+        </button>
+
+    </div>
+
+
+    <div class="play-content">
+
+
+        <div class="play-item active">
+
+            <div class="play-number">01 / MUSIC</div>
+
+            <h3>음악</h3>
+
+            <div class="play-keywords">
+                DRAKE · THE WEEKND · JUSTIN BIEBER · A$AP ROCKY
+            </div>
+
+        </div>
+
+
+        <div class="play-item">
+
+            <div class="play-number">02 / MOVIES</div>
+
+            <h3>영화</h3>
+
+            <div class="play-keywords">
+                CINEMA · STORY · VISUAL · CHRISTOPHER NOLAN
+            </div>
+
+        </div>
+
+
+        <div class="play-item">
+
+            <div class="play-number">03 / FOOTBALL</div>
+
+            <h3>축구</h3>
+
+            <div class="play-keywords">
+                FOOTBALL · MATCH · TACTICS · PASSION
+            </div>
+
+        </div>
+
+
+        <div class="play-item">
+
+            <div class="play-number">04 / F1</div>
+
+            <h3>F1</h3>
+
+            <div class="play-keywords">
+                F1 · AERODYNAMICS · SPEED · ENGINEERING
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="label">05 / CONTACT</div>
+
+    <h2>Let's Connect</h2>
+
+    <div class="contact-box">
+
+        <div>
+
+            <h3>
+                김가윤
+            </h3>
+
+            <p>
+                Mechanical Engineering Aspirant · Curious about how things work.
+            </p>
+
+        </div>
+
+
+        <a href="/cdn-cgi/l/email-protection#f1889e8483b1949c90989ddf929e9c" class="contact-button">
+            EMAIL ME →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 GAYOON · PERSONAL ENGINEERING PORTFOLIO
+
+</footer>
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+function toggleMenu() {
+    const menu = document.getElementById("navLinks");
+    menu.classList.toggle("open");
+}
+
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        document.getElementById("navLinks").classList.remove("open");
+    });
+});
+
+function showPlay(index) {
+
+    const items = document.querySelectorAll(".play-item");
+    const tabs = document.querySelectorAll(".play-tab");
+
+    items.forEach(function(item) {
+        item.classList.remove("active");
+    });
+
+    tabs.forEach(function(tab) {
+        tab.classList.remove("active");
+    });
+
+    items[index].classList.add("active");
+    tabs[index].classList.add("active");
+
+}
+
+</script>
+
+
+</body>
+</html>
